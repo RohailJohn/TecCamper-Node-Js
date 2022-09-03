@@ -6,6 +6,7 @@ const colors = require("colors");
 dotenv.config({ path: "./config/config.env" });
 const app = express();
 const logger = require("./Middleware/logger");
+const auth = require("./Routes/auth");
 
 //Route File
 const bootcamps = require("./Routes/Bootcamps");
@@ -18,6 +19,7 @@ connectDB();
 
 //Mount Router
 app.use("/api/v1/bootcamps", bootcamps);
+app.use("/api/v1/auth", auth);
 
 //Define PORT
 const PORT = process.env.PORT;
